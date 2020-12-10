@@ -1,0 +1,25 @@
+dn: cn=developer,dc=zubcevic,dc=com
+changetype: add
+objectclass: inetOrgPerson
+cn: developer
+givenname: developer
+sn: Developer
+displayname: Developer User
+mail: developer@zubcevic.com
+userpassword: password
+
+dn: ou=Groups,dc=zubcevic,dc=com
+changetype: add
+objectclass: organizationalUnit
+ou: Groups
+
+dn: ou=Users,dc=zubcevic,dc=com
+changetype: add
+objectclass: organizationalUnit
+ou: Users
+
+dn: cn=Jenkins,ou=Groups,dc=zubcevic,dc=com
+changetype: add
+cn: Jenkins
+objectclass: groupOfUniqueNames
+uniqueMember: cn=developer,dc=zubcevic,dc=com
