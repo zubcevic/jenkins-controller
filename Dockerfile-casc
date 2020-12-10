@@ -1,0 +1,10 @@
+FROM jenkins/jenkins:lts
+USER root
+ARG PROXY_HOST=
+ARG PROXY_PORT=
+ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false -Dhttp.proxyPort=${PROXY_PORT} -Dhttps.proxyHost=${PROXY_HOST} -Dhttps.proxyPort=${PROXY_PORT}
+ENV https_proxy=${PROXY_HOST}:${PROXY_PORT}
+ENV http_proxy=${PROXY_HOST}:${PROXY_PORT}
+COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
+RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
+USER jenkins
