@@ -1,11 +1,3 @@
-JDK_Parameter_Plugin:latest
-ace-editor:latest
-active-directory:latest
-ant:latest
-antisamy-markup-formatter:latest
-apache-httpcomponents-client-4-api:latest
-authentication-tokens:latest
-badge:latest
 blueocean:latest
 blueocean-autofavorite:latest
 blueocean-bitbucket-pipeline:latest
@@ -27,7 +19,6 @@ blueocean-pipeline-scm-api:latest
 blueocean-rest:latest
 blueocean-rest-impl:latest
 blueocean-web:latest
-bouncycastle-api:latest
 branch-api:latest
 build-monitor-plugin:latest
 configuration-as-code:latest
@@ -47,8 +38,6 @@ cucumber-testresult-plugin:latest
 custom-tools-plugin:latest
 dependency-check-jenkins-plugin:latest
 dependency-track:latest
-deployit-plugin:latest
-display-url-api:latest
 docker-commons:latest
 docker-java-api:latest
 docker-plugin:latest
@@ -71,10 +60,6 @@ github-branch-source:latest
 gradle:latest
 groovy:latest
 groovy-postbuild:latest
-h2-api:latest
-handlebars:latest
-handy-uri-templates-2-api:latest
-hp-application-automation-tools-plugin:latest
 htmlpublisher:latest
 http_request:latest
 jackson2-api:latest
@@ -83,7 +68,6 @@ javadoc:latest
 jdk-tool:latest
 jenkins-design-language:latest
 jenkinslint:latest
-jira:latest
 job-dsl:latest
 job-import-plugin:latest
 jobConfigHistory:latest
@@ -108,7 +92,6 @@ multibranch-scan-webhook-trigger:latest
 nexus-artifact-uploader:latest
 nodejs:latest
 nvm-wrapper:latest
-okhttp-api:latest
 pam-auth:latest
 percentage-du-node-column:latest
 pipeline-build-step:latest
@@ -164,4 +147,3 @@ workflow-scm-step:latest
 workflow-step-api:latest
 workflow-support:latest
 ws-cleanup:latest
-xvfb:latest

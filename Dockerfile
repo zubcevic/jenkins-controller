@@ -1,4 +1,4 @@
-FROM jenkins-casc:latest
+FROM renezubcevic/jenkins-casc:latest
 ARG PROXY_HOST=
 ARG PROXY_PORT=
 ARG JENKINS_FOOTER_URL=
