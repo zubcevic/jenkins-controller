@@ -1,3 +1,14 @@
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - basicSSHUserPrivateKey:
+          id: "github"
+          privateKeySource:
+            directEntry:
+              privateKey: "${GITHUB_PK}"
+          scope: GLOBAL
+          username: "${GITHUB_USER}"
 jenkins:
   authorizationStrategy:
     loggedInUsersCanDoAnything:
@@ -9,5 +20,30 @@ jenkins:
        - id: ${JENKINS_ADMIN_USER}
          password: ${JENKINS_ADMIN_PASSWORD}
 unclassified:
+  templateGlobalConfig:
+    tier:
+      configurationProvider:
+        scm:
+          scm:
+            git:
+              branches:
+              - name: "*/master"
+              buildChooser: "default"
+              doGenerateSubmoduleConfigurations: false
+              userRemoteConfigs:
+              - credentialsId: "github"
+                url: "git@github.com:zubcevic/pipeline-config.git"
+      libraries:
+      - libraryProvider:
+          scm:
+            scm:
+              git:
+                branches:
+                - name: "*/master"
+                buildChooser: "default"
+                doGenerateSubmoduleConfigurations: false
+                userRemoteConfigs:
+                - credentialsId: "github"
+                  url: "git@github.com:zubcevic/pipeline-config.git"
   location:
     url: ${JENKINS_HOST_URL}

@@ -9,7 +9,7 @@ The Jenkins configuration is stored in **casc.yaml**
 
 Example of how to run in docker:
 
-    docker run -d --name jenkins -e JENKINS_HOST_URL="http://localhost:8080" -e JENKINS_ADMIN_USER=admin -e JENKINS_ADMIN_PASSWORD="password" -p 8080:8080 -p 50000:50000 renezubcevic/jenkins-controller
+    docker run -d --name jenkins -e JENKINS_HOST_URL="http://localhost:8080" -e JENKINS_ADMIN_USER=admin -e JENKINS_ADMIN_PASSWORD="password" -e GITHUB_USER="rene@zubcevic.com" -e GITHUB_PK="..." -p 8080:8080 -p 50000:50000 renezubcevic/jenkins-controller
 
 ## Building local
 
