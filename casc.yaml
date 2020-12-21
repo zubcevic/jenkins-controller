@@ -13,9 +13,15 @@ jenkins:
   authorizationStrategy:
     loggedInUsersCanDoAnything:
       allowAnonymousRead: false
+  remotingSecurity:
+    enabled: true
   securityRealm:
     local:
       allowsSignup: false
       users:
-       - id: ${JENKINS_ADMIN_USER}
-         password: ${JENKINS_ADMIN_PASSWORD}
+       - id: "${JENKINS_ADMIN_USER}"
+         password: "${JENKINS_ADMIN_PASSWORD}"
+unclassified:
+  location:
+    adminAddress: "${JENKINS_ADMIN_EMAIL}"
+    url: "${JENKINS_HOST_URL}"
