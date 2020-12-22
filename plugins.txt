@@ -1,3 +1,4 @@
+adoptopenjdk:latest
 blueocean:latest
 blueocean-autofavorite:latest
 blueocean-bitbucket-pipeline:latest

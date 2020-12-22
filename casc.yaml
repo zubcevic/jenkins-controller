@@ -25,3 +25,49 @@ unclassified:
   location:
     adminAddress: "${JENKINS_ADMIN_EMAIL}"
     url: "${JENKINS_HOST_URL}"
+  templateGlobalConfig:
+    tier:
+      configurationProvider:
+        scm:
+          scm:
+            git:
+              branches:
+              - name: "*/master"
+              buildChooser: "default"
+              doGenerateSubmoduleConfigurations: false
+              userRemoteConfigs:
+              - credentialsId: "github"
+                url: "https://github.com/zubcevic/pipeline-config"
+      librarySources:
+      - libraryProvider:
+          scm:
+            scm:
+              git:
+                branches:
+                - name: "*/master"
+                buildChooser: "default"
+                doGenerateSubmoduleConfigurations: false
+                userRemoteConfigs:
+                - credentialsId: "github"
+                  url: "https://github.com/zubcevic/pipeline-config"
+tool:
+  git:
+    installations:
+    - home: "git"
+      name: "Default"
+  jdk:
+    installations:
+    - name: "JDK11"
+      properties:
+      - installSource:
+          installers:
+          - adoptOpenJdkInstaller:
+              id: "jdk-11.0.9.1+1"
+  maven:
+    installations:
+    - name: "MAVEN363"
+      properties:
+      - installSource:
+          installers:
+          - maven:
+              id: "3.6.3"
