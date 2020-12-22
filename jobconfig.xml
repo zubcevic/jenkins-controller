@@ -1,0 +1,70 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject plugin="workflow-multibranch@2.22">
+  <actions/>
+  <description></description>
+  <properties>
+    <org.jenkinsci.plugins.docker.workflow.declarative.FolderConfig plugin="docker-workflow@1.25">
+      <dockerLabel></dockerLabel>
+      <registry plugin="docker-commons@1.17"/>
+    </org.jenkinsci.plugins.docker.workflow.declarative.FolderConfig>
+    <org.boozallen.plugins.jte.init.governance.TemplateConfigFolderProperty plugin="templating-engine@2.0">
+      <tier>
+        <configurationProvider class="org.boozallen.plugins.jte.init.governance.config.ConsolePipelineConfigurationProvider">
+          <pipelineConfig>
+            <providePipelineConfig>true</providePipelineConfig>
+            <pipelineConfig>libraries{    maven  ;  sonarqube {      sast_project_key=&apos;WebGoat&apos;    }  ;  docker}</pipelineConfig>
+          </pipelineConfig>
+          <defaultTemplate>
+            <provideDefaultTemplate>false</provideDefaultTemplate>
+          </defaultTemplate>
+        </configurationProvider>
+      </tier>
+    </org.boozallen.plugins.jte.init.governance.TemplateConfigFolderProperty>
+    <org.jenkinsci.plugins.pipeline.maven.MavenConfigFolderOverrideProperty plugin="pipeline-maven@3.9.3">
+      <settings class="jenkins.mvn.DefaultSettingsProvider"/>
+      <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+      <override>false</override>
+    </org.jenkinsci.plugins.pipeline.maven.MavenConfigFolderOverrideProperty>
+  </properties>
+  <folderViews class="jenkins.branch.MultiBranchProjectViewHolder" plugin="branch-api@2.6.2">
+    <owner class="org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject" reference="../.."/>
+  </folderViews>
+  <healthMetrics/>
+  <icon class="jenkins.branch.MetadataActionFolderIcon" plugin="branch-api@2.6.2">
+    <owner class="org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject" reference="../.."/>
+  </icon>
+  <orphanedItemStrategy class="com.cloudbees.hudson.plugins.folder.computed.DefaultOrphanedItemStrategy" plugin="cloudbees-folder@6.15">
+    <pruneDeadBranches>true</pruneDeadBranches>
+    <daysToKeep>-1</daysToKeep>
+    <numToKeep>-1</numToKeep>
+  </orphanedItemStrategy>
+  <triggers/>
+  <disabled>false</disabled>
+  <sources class="jenkins.branch.MultiBranchProject$BranchSourceList" plugin="branch-api@2.6.2">
+    <data>
+      <jenkins.branch.BranchSource>
+        <source class="jenkins.plugins.git.GitSCMSource" plugin="git@4.5.0">
+          <id>e514dc3e-7c5b-4fba-85a3-bbacb0c17399</id>
+          <remote>git@github.com:WebGoat/WebGoat.git</remote>
+          <credentialsId>github</credentialsId>
+          <traits>
+            <jenkins.plugins.git.traits.BranchDiscoveryTrait/>
+            <jenkins.scm.impl.trait.WildcardSCMHeadFilterTrait plugin="scm-api@2.6.4">
+              <includes>*develop*</includes>
+              <excludes></excludes>
+            </jenkins.scm.impl.trait.WildcardSCMHeadFilterTrait>
+          </traits>
+        </source>
+        <strategy class="jenkins.branch.DefaultBranchPropertyStrategy">
+          <properties class="empty-list"/>
+        </strategy>
+      </jenkins.branch.BranchSource>
+    </data>
+    <owner class="org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject" reference="../.."/>
+  </sources>
+  <factory class="org.boozallen.plugins.jte.job.TemplateBranchProjectFactory" plugin="templating-engine@2.0">
+    <owner class="org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject" reference="../.."/>
+    <scriptPath>Jenkinsfile</scriptPath>
+    <filterBranches>false</filterBranches>
+  </factory>
+</org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject>

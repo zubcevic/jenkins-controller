@@ -58,6 +58,20 @@ Referred to in casc.yaml as:
               - adoptOpenJdkInstaller:
                   id: "jdk-11.0.9.1+1"
 
+## Jenkins job export
+
+    curl -X GET http://admin:password@127.0.0.1:8080/job/WebGoatMBPipeline/config.xml -o jobconfig.xml
+
+## Jenkins job import
+
+    JENKINS_CRUMB=$(curl --cookie-jar tmpCookie 'http://admin:password@127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)')
+    curl --cookie tmpCookie -X POST 'http://admin:password@127.0.0.1:8080/createItem?name=TestMB' -d @jobconfig.xml -H "$JENKINS_CRUMB" -H "Content-Type: text/xml"
+    
+## Jenkins start job
+
+    curl --cookie tmpCookie -X POST 'http://admin:password@127.0.0.1:8080/job/TestMB/build?delay=0' -H "$JENKINS_CRUMB"
+    curl --cookie tmpCookie -X POST 'http://admin:password@127.0.0.1:8080/job/TestMB/job/develop/build?delay=0' -H "$JENKINS_CRUMB"
+
 ## More info
 
 + [how-to-automate-jenkins-setup-with-docker-and-jenkins-configuration-as-code](https://www.digitalocean.com/community/tutorials/how-to-automate-jenkins-setup-with-docker-and-jenkins-configuration-as-code)
