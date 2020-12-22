@@ -38,7 +38,7 @@ code-coverage-api:1.2.0
 command-launcher:1.5
 config-file-provider:3.7.0
 configuration-as-code:1.46
-content-replace:1.5.1
+content-replace:1.6.0
 credentials-binding:1.24
 credentials:2.3.14
 cucumber-reports:5.4.0
@@ -147,7 +147,7 @@ structs:1.20
 templating-engine:2.0
 text-file-operations:1.3.2
 timestamper:1.11.8
-token-macro:2.12
+token-macro:2.13
 toolenv:1.2
 trilead-api:1.0.13
 variant:1.3
