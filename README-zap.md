@@ -28,3 +28,35 @@ This one can be used on the Jenkins image:
           auth.auto=1"
 
 The report is automatically saved locally on testreport.html.
+More on [ZAP ICTU](https://github.com/ICTU/zap-baseline)
+
+## Zap on WebGoat
+
+Start WebGoat
+
+    docker run --name webgoat -d -p 80:8888 -p 8080:8080 -p 9090:9090 -e TZ=Europe/Amsterdam webgoat/goatandwolf:latest
+
+Register a user (admin1/password)
+
+Run a zap baseline test:
+
+    docker run --rm -v $(pwd):/zap/wrk/:rw -t ictu/zap2docker-weekly zap-baseline.py -I -j \
+      -t http://host.docker.internal:8080/WebGoat \
+      -r webgoat.html \
+       --hook=/zap/auth_hook.py \
+      -z "auth.loginurl=http://host.docker.internal:8080/WebGoat/login \
+          auth.username="admin1" \
+          auth.password="password" \
+          auth.auto=1" \
+          auth.exclude=".*logout.*" 
+
+    docker run --rm -v $(pwd):/zap/wrk/:rw -t ictu/zap2docker-weekly zap-baseline.py -I -j \
+      -t http://host.docker.internal:9090/WebWolf \
+      -r webwolf.html \
+       --hook=/zap/auth_hook.py \
+      -z "auth.loginurl=http://host.docker.internal:9090/login \
+          auth.username="admin1" \
+          auth.password="password" \
+          auth.auto=1" \
+          auth.exclude=".*logout.*" 
+
