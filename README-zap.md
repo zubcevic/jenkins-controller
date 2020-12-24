@@ -34,7 +34,7 @@ More on [ZAP ICTU](https://github.com/ICTU/zap-baseline)
 
 Start WebGoat
 
-    docker run --name webgoat -d -p 80:8888 -p 8080:8080 -p 9090:9090 -e TZ=Europe/Amsterdam webgoat/goatandwolf:latest
+    docker run --name webgoat -d -p 80:8888 -p 8080:8080 -p 9090:9090 -e TZ=Europe/Amsterdam -e EXCLUDE_CATEGORIES="CLIENT_SIDE,GENERAL,CHALLENGE" -e EXCLUDE_LESSONS="SqlInjectionAdvanced,SqlInjectionMitigations" webgoat/goatandwolf:latest
 
 Register a user (admin1/password)
 
@@ -60,3 +60,4 @@ Run a zap baseline test:
           auth.auto=1" \
           auth.exclude=".*logout.*" 
 
+Free JuiceShop training on Veracode community security labs [Veracode](https://securitylabs-ce.veracode.com/)
