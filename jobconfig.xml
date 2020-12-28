@@ -12,7 +12,15 @@
         <configurationProvider class="org.boozallen.plugins.jte.init.governance.config.ConsolePipelineConfigurationProvider">
           <pipelineConfig>
             <providePipelineConfig>true</providePipelineConfig>
-            <pipelineConfig>libraries{    maven  ;  sonarqube {      sast_project_key=&apos;WebGoat&apos;    }  ;  docker}</pipelineConfig>
+            <pipelineConfig>libraries{    
+  maven  ;  
+  sonarqube {      
+    sast_project_key=&apos;someKey&apos;  ;
+    sast_project_organization=&apos;someOrg&apos;  ;
+    sast_project_token=&apos;someToken&apos;
+  }  ;  
+  docker
+}</pipelineConfig>
           </pipelineConfig>
           <defaultTemplate>
             <provideDefaultTemplate>false</provideDefaultTemplate>

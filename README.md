@@ -60,7 +60,7 @@ Referred to in casc.yaml as:
 
 ## Jenkins job export
 
-    curl -X GET http://admin:password@127.0.0.1:8080/job/WebGoatMBPipeline/config.xml -o jobconfig.xml
+    curl -X GET http://admin:password@127.0.0.1:8080/job/TestMB/config.xml -o jobconfig.xml
 
 ## Jenkins job import
 
@@ -77,3 +77,8 @@ Referred to in casc.yaml as:
 + [how-to-automate-jenkins-setup-with-docker-and-jenkins-configuration-as-code](https://www.digitalocean.com/community/tutorials/how-to-automate-jenkins-setup-with-docker-and-jenkins-configuration-as-code)
 + [![Gitter](https://badges.gitter.im/jenkinsci/configuration-as-code-plugin.svg)](https://gitter.im/jenkinsci/configuration-as-code-plugin?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 + [![Gitter](https://badges.gitter.im/jenkinsci/templating-engine-plugin.svg)](https://gitter.im/jenkinsci/templating-engine-plugin?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
+## TODO
+
+Use external secrets provider: 
++ [JCASC with HashiCorp Vault](https://github.com/jenkinsci/configuration-as-code-plugin/blob/master/docs/features/secrets.adoc)
