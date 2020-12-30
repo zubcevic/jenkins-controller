@@ -15,9 +15,9 @@
             <pipelineConfig>libraries{    
   maven  ;  
   sonarqube {      
-    sast_project_key=&apos;someKey&apos;  ;
-    sast_project_organization=&apos;someOrg&apos;  ;
-    sast_project_token=&apos;someToken&apos;
+    sast_project_key=&apos;zubcevic_WebGoat&apos;  ;
+    sast_project_organization=&apos;zubcevic&apos;  ;
+    sast_project_token=&apos;sonarqube-key&apos;
   }  ;  
   docker
 }</pipelineConfig>
@@ -54,7 +54,7 @@
         <source class="jenkins.plugins.git.GitSCMSource" plugin="git@4.5.0">
           <id>e514dc3e-7c5b-4fba-85a3-bbacb0c17399</id>
           <remote>git@github.com:WebGoat/WebGoat.git</remote>
-          <credentialsId>github</credentialsId>
+          <credentialsId>github2</credentialsId>
           <traits>
             <jenkins.plugins.git.traits.BranchDiscoveryTrait/>
             <jenkins.scm.impl.trait.WildcardSCMHeadFilterTrait plugin="scm-api@2.6.4">

@@ -61,6 +61,7 @@ github-branch-source:latest
 gradle:latest
 groovy:latest
 groovy-postbuild:latest
+hashicorp-vault-plugin:latest
 htmlpublisher:latest
 http_request:latest
 jackson2-api:latest

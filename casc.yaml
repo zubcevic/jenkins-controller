@@ -2,13 +2,25 @@ credentials:
   system:
     domainCredentials:
     - credentials:
-      - basicSSHUserPrivateKey:
-          id: "github"
-          privateKeySource:
-            directEntry:
-              privateKey: "${GITHUB_PK}"
+      - vaultTokenCredential:
+          description: "Token to access the Vault"
+          id: "accessVault"
           scope: GLOBAL
-          username: "${GITHUB_USER}"
+          token: "${JENKINS_VAULT_TOKEN}"
+      - vaultStringCredentialImpl:
+          engineVersion: 2
+          id: "sonarcloud-key"
+          path: "secret/jenkins/sonarcloud"
+          scope: GLOBAL
+          vaultKey: "api-key"
+      - vaultSSHUserPrivateKeyImpl:
+          engineVersion: 2
+          id: "github2"
+          passphraseKey: "passphrase"
+          path: "secret/jenkins/github"
+          privateKeyKey: "privatekey"
+          scope: GLOBAL
+          usernameKey: "username"
 jenkins:
   authorizationStrategy:
     loggedInUsersCanDoAnything:
@@ -25,6 +37,12 @@ unclassified:
   location:
     adminAddress: "${JENKINS_ADMIN_EMAIL}"
     url: "${JENKINS_HOST_URL}"
+  hashicorpVault:
+    configuration:
+      engineVersion: 2
+      skipSslVerification: true
+      vaultCredentialId: "accessVault"
+      vaultUrl: "${VAULT_ADDR}"
   templateGlobalConfig:
     tier:
       configurationProvider:
@@ -36,7 +54,7 @@ unclassified:
               buildChooser: "default"
               doGenerateSubmoduleConfigurations: false
               userRemoteConfigs:
-              - credentialsId: "github"
+              - credentialsId: "github2"
                 url: "https://github.com/zubcevic/pipeline-config"
       librarySources:
       - libraryProvider:
@@ -48,7 +66,7 @@ unclassified:
                 buildChooser: "default"
                 doGenerateSubmoduleConfigurations: false
                 userRemoteConfigs:
-                - credentialsId: "github"
+                - credentialsId: "github2"
                   url: "https://github.com/zubcevic/pipeline-config"
 tool:
   git:

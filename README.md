@@ -82,3 +82,4 @@ Referred to in casc.yaml as:
 
 Use external secrets provider: 
 + [JCASC with HashiCorp Vault](https://github.com/jenkinsci/configuration-as-code-plugin/blob/master/docs/features/secrets.adoc)
++ [Vault](https://www.youtube.com/watch?v=VYfl-DpZ5wM)
