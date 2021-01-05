@@ -66,7 +66,7 @@ Referred to in casc.yaml as:
 
     JENKINS_CRUMB=$(curl --cookie-jar tmpCookie 'http://admin:password@127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)')
     curl --cookie tmpCookie -X POST 'http://admin:password@127.0.0.1:8080/createItem?name=TestMB' -d @jobconfig.xml -H "$JENKINS_CRUMB" -H "Content-Type: text/xml"
-    
+
 ## Jenkins start job
 
     curl --cookie tmpCookie -X POST 'http://admin:password@127.0.0.1:8080/job/TestMB/build?delay=0' -H "$JENKINS_CRUMB"
@@ -80,6 +80,12 @@ Referred to in casc.yaml as:
 
 ## TODO
 
-Use external secrets provider: 
+Use external secrets provider:
 + [JCASC with HashiCorp Vault](https://github.com/jenkinsci/configuration-as-code-plugin/blob/master/docs/features/secrets.adoc)
 + [Vault](https://www.youtube.com/watch?v=VYfl-DpZ5wM)
+
+## Other Related README files
+
++ [Container scanning with Clair](README-clair.md)
++ [Security scanning with ZAP](README-zap.md)
++ [Secretes with Vault](README-vault.md)
