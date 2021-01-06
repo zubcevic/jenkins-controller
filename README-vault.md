@@ -47,3 +47,10 @@ In a shell you can use the vault CLI with the root token as follows:
 ## Test RoleID and SecretID and get temporary VAULT_TOKEN for that Role
 
     vault write auth/approle/login role_id="69b0889e-ffb6-3eab-be7b-1b55b899754b" secret_id="23098702-bf0c-2c87-1dbd-4f3c82bac221"
+
+## Add Jenkins secrets with temp token with Jenkins role_id
+
+    vault write auth/approle/login role_id="69b0889e-ffb6-3eab-be7b-1b55b899754b" secret_id="23098702-bf0c-2c87-1dbd-4f3c82bac221"
+    export VAULT_TOKEN="...."
+    export VAULT_ADDR="http://127.0.0.1:8200"
+    vault kv put secret/jenkins/sonarcloud api-key=blabla
