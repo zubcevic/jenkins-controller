@@ -53,4 +53,6 @@ In a shell you can use the vault CLI with the root token as follows:
     vault write auth/approle/login role_id="69b0889e-ffb6-3eab-be7b-1b55b899754b" secret_id="23098702-bf0c-2c87-1dbd-4f3c82bac221"
     export VAULT_TOKEN="...."
     export VAULT_ADDR="http://127.0.0.1:8200"
+    export SSH_PK=$(cat ~/.ssh/id_rsa)
     vault kv put secret/jenkins/sonarcloud api-key=blabla
+    vault kv put secret/jenkins/github privatekey="${SSH_PK}" username="rene@zubcevic.com" passphrase="" 
