@@ -88,4 +88,4 @@ Use external secrets provider:
 
 + [Container scanning with Clair](README-clair.md)
 + [Security scanning with ZAP](README-zap.md)
-+ [Secretes with Vault](README-vault.md)
++ [Secrets with Vault](README-vault.md)
