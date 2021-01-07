@@ -60,6 +60,8 @@ Referred to in casc.yaml as:
 
 ## Jenkins job export
 
+    curl -X GET http://admin:password@127.0.0.1:8080/job/TestMB/credentials/store/folder/domain/_/credential/jenkins-id/config.xml -o jenkinssecret.xml
+    curl -X GET http://admin:password@127.0.0.1:8080/job/TestMB/credentials/store/folder/domain/_/credential/github-id/config.xml -o githubsecret.xml
     curl -X GET http://admin:password@127.0.0.1:8080/job/TestMB/config.xml -o jobconfig.xml
 
 ## Jenkins job import
