@@ -30,6 +30,7 @@ cobertura:latest
 code-coverage-api:latest
 command-launcher:latest
 config-file-provider:latest
+conjur-credentials:latest
 content-replace:latest
 credentials:latest
 credentials-binding:latest
